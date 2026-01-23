@@ -1,6 +1,6 @@
 USE spas;
 
--- 1. Trigger: after inserting marks, update a summary table (or maintain another log)-- (Example: ensure marks are not null; this trigger just logs)
+-- 1. Trigger: after inserting marks, update a summary table
 DROP TABLE IF EXISTS marks_log;
 CREATE TABLE marks_log (
 log_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -23,7 +23,7 @@ VALUES (NEW.mark_id, NEW.student_id, NEW.course_id, NEW.marks);
 END
 $$ DELIMITER ;
 
--- 2. Procedure: Calculate and return student report (callable from app)
+-- 2. Procedure: Calculate and return student report
 
 DROP PROCEDURE IF EXISTS get_student_report;
 
@@ -38,7 +38,7 @@ WHERE s.student_id = p_student_id;
 END
 $$ DELIMITER ;
 
--- 3. Procedure: Auto-flag low attendance students (example writes to a table)
+-- 3. Procedure: Auto-flag low attendance students)
 
 DROP TABLE IF EXISTS low_attendance;
 CREATE TABLE low_attendance (
