@@ -13,7 +13,7 @@ FROM Students s
 LEFT JOIN Marks m ON s.student_id = m.student_id
 GROUP BY s.student_id;
 
--- 2. Ranking using window function-- 
+-- 2. Ranking using window function
 SELECT
 student_id,
 name,
