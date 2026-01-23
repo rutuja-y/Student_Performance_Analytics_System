@@ -5,16 +5,19 @@ INSERT INTO Students (name, class, gender, dob) VALUES
 ('Rohit Sharma', 'B.Tech CSE', 'Male', '2002-08-01'),
 ('Meera Desai', 'B.Tech CSE', 'Female', '2003-06-20'),
 ('Aditya Rao', 'B.Tech CSE', 'Male', '2002-12-05'),
-('Nisha Patil', 'B.Tech CSE', 'Female', '2003-01-11');-- Courses
+('Nisha Patil', 'B.Tech CSE', 'Female', '2003-01-11');
+
 INSERT INTO Courses (course_name, max_marks) VALUES
 ('Data Structures', 100),
 ('Database Systems', 100),
 ('Operating Systems', 100),
 ('Computer Networks', 100),
-('Software Engineering', 100);-- Enrollments (students take all courses for simplicity)
+('Software Engineering', 100);
+
 INSERT INTO Enrollments (student_id, course_id, semester)
 SELECT s.student_id, c.course_id, 'Sem 4'
-FROM Students s CROSS JOIN Courses c;-- Marks
+FROM Students s CROSS JOIN Courses c;
+
 INSERT INTO Marks (student_id, course_id, marks, exam_date) VALUES
 (1, 1, 88, '2025-04-10'),
 (1, 2, 92, '2025-04-12'),
